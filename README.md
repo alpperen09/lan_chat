@@ -17,5 +17,9 @@ To log in, simply enter the server IP address. (ex. 192.168.1.7 or 169.254.114.6
 # Requirements
 
 - python 3.9 or never
+- flask, flask_socketio 
 <br>
-- pip packages ```pip install flask flask_socketio```
+
+```bash
+pip install flask flask_socketio
+```
