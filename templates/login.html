@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0d0f12;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #d6d6d6;
+        }
+
+        .login-container {
+            background: #151a21;
+            padding: 40px;
+            border-radius: 10px;
+            width: 360px;
+            border: 1px solid #1f2630;
+        }
+
+        h2 {
+            margin-bottom: 28px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        input[type="text"] {
+            padding: 14px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #232b36;
+            background: #0f1318;
+            color: #e0e0e0;
+            font-size: 15px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #3a4a5f;
+        }
+
+        input::placeholder {
+            color: #7a7a7a;
+        }
+
+        button {
+            padding: 14px;
+            background: #2a3442;
+            color: #eaeaea;
+            border: 1px solid #344155;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #323f52;
+        }
+
+        .error-popup {
+            background: #3a1f23;
+            color: #f1c6c6;
+            border: 1px solid #5a2c32;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Kullanıcı Adı Girin</h2>
+        <form method="POST" action="/chat">
+            <input type="text" name="username" placeholder="Kullanıcı Adı" required autofocus autocomplete="false">
+            <button type="submit">Giriş Yap</button>
+        </form>
+    </div>
+
+    {% if error %}
+    <script>
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-popup';
+        errorDiv.textContent = 'Bu kullanıcı adı zaten kullanımda!';
+        document.body.appendChild(errorDiv);
+        setTimeout(() => errorDiv.remove(), 3000);
+    </script>
+    {% endif %}
+</body>
+
+</html>
