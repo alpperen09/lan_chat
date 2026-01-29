@@ -289,9 +289,19 @@
             
             const copyBtn = document.createElement('button');
             copyBtn.className = 'copy-btn';
-            copyBtn.textContent = 'copy';
-            copyBtn.onclick = function() {
-                navigator.clipboard.writeText(messageText);
+            copyBtn.textContent = 'Copy';
+
+            copyBtn.onclick = function () {
+                navigator.clipboard.writeText(messageText).then(() => {
+                    copyBtn.textContent = 'Copied!';
+                    copyBtn.style.backgroundColor = "red";
+                    setTimeout(() => {
+                        copyBtn.textContent = 'Copy';
+                        copyBtn.style.backgroundColor = "blue";
+                    }, 2500);
+                }).catch(err => {
+                    console.error('Kopyalama başarısız:', err);
+                });
             };
             
             messageWrapper.appendChild(messageContainer);
