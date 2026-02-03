@@ -4,79 +4,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giriş Yap</title>
+    <title>Log In</title>
+    <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAHYAAAB2AH6XKZyAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAC+lJREFUeJzNm3l0VFUSh7/7uhOSQPaERZAtCQnDoomyDGDEZVBxQIFxRZZRdAY8gIwLbqPoeFBcjgFUBHcizMxhERQVGASURUAgIErYQRBZshNIyNLvzh/V6XRClk6/F+R3Tud23ru3XlX1vXWr6tZTXAw8pAOiA4lzOUlSJp1QRAERaJqh0MA5IB9NrjbY59RkZhdziDmqrLFZU41FOHySvtowGaA11ylFXyC4gSSKNGxQijUmrChIU9sbg09bFRA9Sbc2TUYBI4CkiusOAzrGQmILiIuFFmHQtAmEBcn9M+fhXAmcOgMHTsO+03AoC1xmFfKZKNINxdycN9Vxu3i2RQFhk3S8YfKkEsEDAVpHwKArILUT9ImrFNZXFBTDxoPw3T744kf4Ld9zqxT4xDSZVjBTHbTKuyUFhE3SUQ6TqcAYwBHggNuvhHt7wTUJYNg0v0wN6/bD/M2wZAeUuQAoB94zS3mmYJbK85e23yxGTNCjlOI1ILZJAIzoBeOvh8uj/KXoG47mwoxvYN5mKCkHA7JcmkfzZ6h0f+g1WAExT+hQVwmzgXsAUhPgtb9AQgt/Hu8/DmfD5EWwKlP+17BIBfFA3jRV0BA6DVJA1CTdBZPPNCREhMCbd8JtVzaEgv1YvB0eXSA2Q2v2GZohuTPVbl/H+6yA6Em6pzb5SkN08uXwwWhoH+0Xz7bj1zy4/xPYegSAPBSD8tLUBl/G+qSAqAn6Zq1YBIQMS4G3h0Ogw29+GwUl5TB2HizJAKUoRjMkd7paUd+4ehUQPVH30rBaQ8iYfvDKMPusu93QGv65FN5ZC0AxMCBvulpf15g6RXGv+XUaIv+WCi8PtY3XRsUTC+H99aAUubi4pi6bUKsCYsfpZuUBbAUSh6XA7BGX7i9fHaaGB+fCZxkAHFAmV+XOVGdq6uusjUh5AO8DiVe1kzVvl/AFxfC/3bDnJJxwb1itwqFzK7ixM4Q3NGKoAYaCd4bDkWzIOEa8NpgFDK+pb41iRTyiRyvNRxEhsPYxaGuDc3MwC6Z+Bct+9HhyFyDAIe7zMwOhQ4z1Zx7Jgf6vSawBjMibrj6t3ucCBbjd2z1A7Eej7dnn314DLy4TwZ0OCYw6xECoOz4oPC/Bz+EsKDdFEVMGwdj+1p+9aLssBwWnXaUkVXebL1gCDs3LQOyNna0Lr7U4KR9vlGnZOw6uTYJmTS7s26+TRIRrMmHLYXhmicya1++wxsOwFHGb1+6luRHIS8DD3verzICwCTrBochsEoBj42Tr0zBtlfzyTQLgzh7QqaVv4/aegAU/yN7+wmCJMazgYBb0fQVKXZSbJkneUaTh3dGAJwHHiF7Whd91HF76Un75e3r5LjxAYiu4u5eMfXEZ7D5hjZe4WIlQAadhMNn7nkcBUeN1G6W4L8BhXeMAL3wh29E1nSCuecPHx7eAvgmSFJnyuXV+Jt4ATpF2VPQk3briukcB2sEoIHBIsvWQ9kgOrN4DIYGiAH+RmgTBgRLxHc21xlO7aLg9GYBAUzOy4nrlEtCMAM9UsYSvd0mb1ErWv78IcgoNgK92WedreIVsblnBrYDoiboHkNgmEvrFW3/Qzl+l9WfqV0dcbFWaVnBNgjhdQOfwR3QKuBXggpsABnW3x+M75XY6w2zw6sJDpD3ZoDRHzTCUOFoAhltmw/3nOrC2Xr1RVCqtw6i7ny+ooFFs0wlBaoK02uR6AIMpOlBDH4ch2Vs7EN1U2rPnrdNyu7EemlbRN16UqhR9eUgHGFE5xANB8c0bnrquDV0uk9aq5QY4liNtt9Z19/MV4cEeHyc4JpiOhqlIBEiwwWBV4PrO0u4+Lr6AvzA17P5Nvl+XVHffhqCTO4FbrkkylKITQLyNCujdQax37jnYcdR/Ohm/QN45Ybhne9vY88iqFJ0MDbEgx1V2QSl4eqB8X7lLhGgocs/Byp/k+1O3CE274CVrrKGgGdQcoVnBkGS4tRucK4X0jZBf5PvYvCIZU1QKg6+wP/XuZetCDSAU7FcAwKz7IPlyyCqE2Wvg5+MSItcGreGnX6VvdiGktJXMjt3wkjXMkw+wc4p5P2jJwzBmrqTB/rMZWkVA9zbQLqbSySkokvTVrmOVabKbu8CckRJP2A1vWZ1AIVQ6L3YjNAimDYMzxbD5MJzIl09d6N0Rpg5tnFkJknhx44wTRSEazpbUMcIP/JIjmaAvd8mZf3UYqjJQKimrul1uOgQp/5Lzxlu7weg+9uQlK1BY6aAVOjHJQsFxvw+Yq2LrEZixGr7+qbLAIaqpbD1toqBlOESESJjrjeJSMX4nC+So68Ap2H8K0k7BzNUwsCtMuAGuamedx+OVMzDLqQ32KW3da8sqhOc/h/9uFWPmdMDV7aFXR2gZUf/44ED5XBYBKW4hTxTApoPw4zEpkli2C+7pAc8Phthm/vNaIauGvU7DxT5tQKaFtNOCbfD4AvHbgwOhTzz06AhNLRqwVuEwJAUGdIEth2DDAZi/RZbVG3fA0BT/6FbI6nCxTzFFB0bmkW8ogg+/XJmq9gXlJjy3FN79Vv5PbgsDujWe8SoohqXbZWkAjOsPUwZ7Ul0+04h7GkxNUV4xEQZTVKmCjab2HC/7hOJSuONdET7QCXf1hKFXN57wIIHMyL7ynECnHILeNQfONyBU/uGIGFwNG5ijygwArVgDsMLHsoJSF4z+GL7dJ/v06H7QtU0DpbGA5LZwf6pUmq3ZA/e+LzuJL1judq8VrAZ3QsQ0WV5xsy5PDcSyj/xAHJvIEHiof+PXBdWE1hEwJlV2lLV74a8f1x95ag0r3T+yNlkBbgUUzFDbgMyjubChnsKz11cKkdBgeCAVoi1YY6uICZWZ0CwIlv8Mb6ysu/+6A7LFArvzZ6oM8M4KK9IB0r+vncB3+0UBTgcM713pyv6eiAwRXpwGvLpCdoraMLdSNk9FmUcBjnI+AUqW7qjiKHhQXArj5skSGNAVWkfaI4AdaBMFf+oqvI2dV7NRPJYLX+wEoMThYm7FdY8Cst9SvwFzS10wfdWFBGaukWrNdtHiq19q+GMctI+RKe4ukamCtG88x/IfuWUFqp0NmibTAFf6JjlQrMDpM+KOGgoGJTdO5GgVSsHAK6RNWyWeaQUOZsG8TQCUmS5e9R5XRQHuU9PZJeXw1OLK63PWSQTVrY29mSO70SocurSWwO69dZXXJy+SrVvBrIK31GHvMRf4UGYpzyo4vSoTFm4Tb2/+FrmXmti4AtiBa908frpZeF+wTc4pgZM6iOeq979AAQWzVJ6peQzg8YXw4XqJ0NpFQ/NL+NevQMtw8UtOFgjvTyz03Hq0pjLaWldz5EQ9D7hXKXEgBiVDzw6Nw7Td2HwIlu0Qe6A1oEjPS1Mja+pbaxjhaMLfFeyv8AwTL3IxtBUkuYsx3LzvcZYyrra+tSog+1VVqBS3KUUuwHd763eTLwVoLbyCFEoaLoZkvaPO1ta/zkAyJ01lKsUtCoq2HIalGZe2ErSGL3dKkZWC85gMynlL7alrjG/F0hP1TSg+05rg7m3g9hQIqLXE8vdBmQsWb5O0uoIiTIbkzlT1RAd+lsu3jJBKkkibTmytoqAY/v29uPBKka/hz7aWy1cgarz+gzZYDCSGBMIt3eHKtn7xbAu0hoyjsHyXxCpApuFiaH3T3hv+vjIzB7gbpAxmcLJkfi8mcs7C5xlSYerGp84yxtZl8GqClZemRjgUb5gQ6zAkS5OaJOFpYyL3HHy7B3Yek+hPK04pzT/ypqv5/tCzFNaEj9WRRiBT0TyIwuEwxBdPbiszw66gydRw8LRM993HRXClKNeadwni2Ya+KOUNW1gMH6/jlOJJQzFKQwBIgVTnVtCxuVRkVD8IqQ9FpXAkSwTPPAmFxZ5bZcCHpotp1QMbf2D/q7OakUghoqemQymxETGhENMMQpvIsViQ+2jsfJl8Cs9D9lk5Gc4rusDn+BlId7hI947nraLxXp5+RKcYmgFac4O/L0+jWI9mtVasyE9TOxqDz4uT2piinTFn6FjuIslQxGtNcyAMTZj79fmzQIHSZGsHex2KvdlhHGKKKm9s1v4PUR8ohQB+Q/cAAAAASUVORK5CYII=" type="image/x-icon">
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
+            margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0d0f12;
+            background: #00001d;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            color: #d6d6d6;
+            color: #e0e0e0;
+            overflow: hidden;
+            cursor: grab;
         }
 
         .login-container {
-            background: #151a21;
-            padding: 40px;
-            border-radius: 10px;
             width: 360px;
-            border: 1px solid #1f2630;
+            padding: 40px 35px;
+            background: rgba(21, 26, 33, 0.95);
+            border-radius: 12px;
+            border: 1px solid #2a3442;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+            z-index: 2;
         }
 
         h2 {
-            margin-bottom: 28px;
+            margin: 0 0 28px;
             text-align: center;
             font-size: 22px;
             font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         input[type="text"] {
+            width: 100%;
             padding: 14px;
             margin-bottom: 20px;
-            border-radius: 6px;
-            border: 1px solid #232b36;
-            background: #0f1318;
-            color: #e0e0e0;
+            border-radius: 8px;
+            border: 1px solid #2c3644;
+            background: #0f141b;
+            color: #f0f0f0;
             font-size: 15px;
         }
 
         input[type="text"]:focus {
             outline: none;
-            border-color: #3a4a5f;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
         }
 
         input::placeholder {
-            color: #7a7a7a;
+            color: #7a8595;
         }
 
         button {
+            width: 100%;
             padding: 14px;
-            background: #2a3442;
-            color: #eaeaea;
-            border: 1px solid #344155;
-            border-radius: 6px;
-            cursor: pointer;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
             font-size: 15px;
+            transition: transform 2s ease, box-shadow 2s ease;
         }
 
         button:hover {
-            background: #323f52;
+            background: linear-gradient(-135deg, #2563eb, #1e40af);
+            transition: transform 2s ease, box-shadow 2s ease;
+            cursor: grab;
         }
 
+        button:active {
+            transform: translateY(0);
+            box-shadow: none;
+            cursor: grabbing;
+        }
+
+        /* Error popup */
         .error-popup {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
             background: #3a1f23;
             color: #f1c6c6;
             border: 1px solid #5a2c32;
+            padding: 14px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            z-index: 9999;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -10px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        /* Stars */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 2s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 0.3;
+            }
         }
     </style>
 </head>
 
 <body>
+
     <div class="login-container">
         <h2>Kullanıcı Adı Girin</h2>
         <form method="POST" action="/chat">
-            <input type="text" name="username" placeholder="Kullanıcı Adı" required autofocus autocomplete="false">
+            <input type="text" name="username" placeholder="Kullanıcı Adı" required autofocus autocomplete="off">
             <button type="submit">Giriş Yap</button>
         </form>
     </div>
@@ -85,11 +149,35 @@
     <script>
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-popup';
-        errorDiv.textContent = 'Bu kullanıcı adı zaten kullanımda!';
+        errorDiv.textContent = '{{ error }}';
         document.body.appendChild(errorDiv);
-        setTimeout(() => errorDiv.remove(), 3000);
+
+        setTimeout(() => {
+            errorDiv.remove();
+        }, 3000);
     </script>
     {% endif %}
-</body>
 
+    <script>
+        function createStars() {
+            const numberOfStars = 800;
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+
+                const size = Math.random() * 2.5 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+
+                document.body.appendChild(star);
+            }
+        }
+
+        createStars();
+    </script>
+
+</body>
 </html>
