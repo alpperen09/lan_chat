@@ -9,134 +9,112 @@
 
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
-
+ 
         body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #00001d;
-            height: 100vh;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #111111;
+            color: #d8d8d8;
+            min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
-            color: #e0e0e0;
-            overflow: hidden;
-            cursor: grab;
+            align-items: center;
+            padding: 20px;
         }
-
+ 
         .login-container {
-            width: 360px;
-            padding: 40px 35px;
-            background: rgba(21, 26, 33, 0.95);
-            border-radius: 12px;
-            border: 1px solid #2a3442;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
-            z-index: 2;
+            background: #181818;
+            border: 1px solid #2a2a2a;
+            border-radius: 14px;
+            padding: 36px 32px;
+            width: 100%;
+            max-width: 360px;
         }
-
+ 
         h2 {
-            margin: 0 0 28px;
-            text-align: center;
-            font-size: 22px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #787878;
             margin-bottom: 20px;
-            border-radius: 8px;
-            border: 1px solid #2c3644;
-            background: #0f141b;
-            color: #f0f0f0;
-            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
         }
-
-        input[type="text"]:focus {
+ 
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+ 
+        input[type="text"] {
+            background: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 11px 18px;
+            color: #d8d8d8;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 15px;
             outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+            transition: border-color 0.2s;
         }
-
-        input::placeholder {
-            color: #7a8595;
+ 
+        input[type="text"]::placeholder {
+            color: #787878;
+            opacity: 0.6;
         }
-
-        button {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #2563eb, #1e40af);
-            color: #fff;
+ 
+        input[type="text"]:focus {
+            border-color: #6355c7;
+        }
+ 
+        button[type="submit"] {
+            background: #4a3aaa;
             border: none;
+            color: #fff;
+            padding: 11px 22px;
             border-radius: 8px;
-            font-size: 15px;
-            transition: transform 2s ease, box-shadow 2s ease;
+            cursor: pointer;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            transition: opacity 0.2s, transform 0.1s;
         }
-
-        button:hover {
-            background: linear-gradient(-135deg, #2563eb, #1e40af);
-            transition: transform 2s ease, box-shadow 2s ease;
-            cursor: grab;
+ 
+        button[type="submit"]:hover {
+            opacity: 0.85;
         }
-
-        button:active {
-            transform: translateY(0);
-            box-shadow: none;
-            cursor: grabbing;
+ 
+        button[type="submit"]:active {
+            transform: scale(0.97);
         }
-
-        /* Error popup */
+ 
         .error-popup {
             position: fixed;
             top: 24px;
             left: 50%;
             transform: translateX(-50%);
-            background: #3a1f23;
-            color: #f1c6c6;
-            border: 1px solid #5a2c32;
-            padding: 14px 22px;
+            background: #1e1e1e;
+            border: 1px solid rgba(255, 50, 50, 0.3);
+            color: #ff6b6b;
+            padding: 10px 20px;
             border-radius: 8px;
-            font-size: 14px;
-            z-index: 9999;
-            animation: fadeIn 0.3s ease;
+            font-size: 13px;
+            font-style: italic;
+            white-space: nowrap;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -10px);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, 0);
-            }
-        }
-
-        /* Stars */
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: twinkle 2s infinite ease-in-out;
-            z-index: 1;
-        }
-
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.8;
-            }
-            50% {
-                opacity: 0.3;
+ 
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 28px 20px;
             }
         }
     </style>
 </head>
-
+ 
 <body>
-
     <div class="login-container">
         <h2>Kullanıcı Adı Girin</h2>
         <form method="POST" action="/chat">
@@ -144,40 +122,16 @@
             <button type="submit">Giriş Yap</button>
         </form>
     </div>
-
     {% if error %}
     <script>
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-popup';
         errorDiv.textContent = '{{ error }}';
         document.body.appendChild(errorDiv);
-
         setTimeout(() => {
             errorDiv.remove();
         }, 3000);
     </script>
     {% endif %}
-
-    <script>
-        function createStars() {
-            const numberOfStars = 800;
-            for (let i = 0; i < numberOfStars; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-
-                const size = Math.random() * 2.5 + 1;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.left = `${Math.random() * 100}vw`;
-                star.style.top = `${Math.random() * 100}vh`;
-                star.style.animationDuration = `${Math.random() * 2 + 1}s`;
-
-                document.body.appendChild(star);
-            }
-        }
-
-        createStars();
-    </script>
-
 </body>
 </html>
