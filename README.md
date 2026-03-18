@@ -1,8 +1,9 @@
 # lan_chat
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-46a63c?style=flat&logo=flask&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 <br>
 <br>
 **chat with your friend on LAN**
@@ -23,3 +24,8 @@ To log in, simply enter the server IP address. (ex. 192.168.1.7 or 169.254.114.6
 ```bash
 pip install flask flask_socketio
 ```
+
+## Note:
+nothing is needed anymore.
+
+download with releases or [this](https://github.com/alpperen09/lan_chat/releases/download/portable/lanchat-18.03.2026.zip) link
