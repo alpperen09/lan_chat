@@ -28,4 +28,4 @@ pip install flask flask_socketio
 ## Note:
 nothing is needed anymore.
 
-download with releases or [this](https://github.com/alpperen09/lan_chat/releases/download/portable/lanchat-18.03.2026.zip) link
+download with releases or [this](https://github.com/alpperen09/lan_chat/releases/tag/portable) link
