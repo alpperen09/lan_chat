@@ -18,7 +18,8 @@ To log in, simply enter the server IP address. (ex. 192.168.1.7 or 169.254.114.6
 # Requirements
 
 - python 3.9 or never
-- flask, flask_socketio 
+- flask, flask_socketio
+- socket.io.js 
 <br>
 
 ```bash
@@ -29,3 +30,5 @@ pip install flask flask_socketio
 nothing is needed anymore.
 
 download with releases or [this](https://github.com/alpperen09/lan_chat/releases/tag/portable) link
+
+extract the zip and click "ClickMe.bat"
