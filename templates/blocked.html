@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Erişim Yasaklandı</title>
+    <style>
+        body {
+            margin: 0;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f7f7f7;
+            color: #535353;
+            overflow: hidden;
+        }
+
+        #game-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        canvas {
+            display: block;
+            background-color: #fff;
+            border-bottom: 2px solid #535353;
+        }
+
+        .info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="game-container">
+        <h1>YOU ARE BLOCKED</h1>
+        <p>seni tekrar #chat'e alana kadar oyna! Zıplamak için <b>BOŞLUK</b> tuşuna bas.</p>
+        <canvas id="dinoGame"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('dinoGame');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = 600;
+        canvas.height = 150;
+
+        let score = 0;
+        let gameSpeed = 5;
+        let isGameOver = false;
+
+        const dino = { x: 50, y: 110, w: 40, h: 40, dy: 0, jumpForce: 12, grounded: false, gravity: 0.6 };
+        const obstacles = [];
+
+        function spawnObstacle() {
+            let size = Math.random() * 30 + 20;
+            obstacles.push({ x: canvas.width, y: 150 - size, w: 20, h: size });
+        }
+
+        function update() {
+            if (isGameOver) return;
+
+
+            if (!dino.grounded) {
+                dino.dy += dino.gravity;
+                dino.y += dino.dy;
+            }
+
+            if (dino.y + dino.h >= 150) {
+                dino.y = 150 - dino.h;
+                dino.dy = 0;
+                dino.grounded = true;
+            }
+
+
+            obstacles.forEach((obs, i) => {
+                obs.x -= gameSpeed;
+                if (obs.x + obs.w < 0) {
+                    obstacles.splice(i, 1);
+                    score++;
+                }
+
+
+                if (dino.x < obs.x + obs.w && dino.x + dino.w > obs.x &&
+                    dino.y < obs.y + obs.h && dino.y + dino.h > obs.y) {
+                    isGameOver = true;
+                }
+            });
+
+            if (Math.random() < 0.01) spawnObstacle();
+            gameSpeed += 0.001;
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+
+            ctx.fillStyle = '#535353';
+            ctx.fillRect(dino.x, dino.y, dino.w, dino.h);
+
+
+            ctx.fillStyle = '#ff4444';
+            obstacles.forEach(obs => ctx.fillRect(obs.x, obs.y, obs.w, obs.h));
+
+
+            ctx.fillStyle = '#535353';
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 500, 30);
+
+            if (isGameOver) {
+                ctx.fillText("OYUN BİTTİ! Yeniden başlamak için tıkla.", 150, 75);
+            }
+        }
+
+        function loop() {
+            update();
+            draw();
+            if (!isGameOver) requestAnimationFrame(loop);
+        }
+
+        window.addEventListener('keydown', e => {
+            if (e.code === 'Space' && dino.grounded) {
+                dino.dy = -dino.jumpForce;
+                dino.grounded = false;
+            }
+            if (isGameOver && e.code === 'Space') restart();
+        });
+
+        canvas.addEventListener('click', () => { if (isGameOver) restart(); });
+
+        function restart() {
+            obstacles.length = 0;
+            score = 0;
+            gameSpeed = 5;
+            isGameOver = false;
+            dino.y = 110;
+            loop();
+        }
+
+        loop();
+    </script>
+</body>
+
+</html>
